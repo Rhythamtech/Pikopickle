@@ -1,1 +1,1 @@
-web: gunicorn pikopickle.wsgi --log-file-
+web: gunicorn pikopickle.wsgi 
