@@ -1,0 +1,129 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+
+        <!-- Main content -->
+        <div id="main-content" class="main-content">
+            <div class="container sm-margin-top-37px">
+                <div class="row">
+
+                    <!--checkout progress box-->
+                    <div class="col-lg-7 col-md-7 col-sm-6 col-xs-12">
+                        <div class="checkout-progress-wrap">
+                            <ul class="steps">
+                                <li class="step 1st">
+                                    <div class="checkout-act active">
+                                        <h3 class="title-box"><span class="number">@</span>Customer checkout details</h3>
+                                        <div class="box-content">
+                                            <div class="login-on-checkout">
+                                                <form name="frm-login" method="post">
+                                                    {% csrf_token %}
+                                                    <p class="form-row">
+                                                        <label>Email Address</label>
+                                                        <input type="email" name="email" value="{{User.email}}" placeholder="Your email">
+                                                         <label>Name</label>
+                                                        <input type="text" name="name"  value="{{User.name}}" placeholder="Your name">
+                                                        <label>Address Lane 1</label>
+                                                        <input type="text" name="address1" value="{{User.address1}}" placeholder="Your Address lane 1">
+                                                        <label>Address Lane 2</label>
+                                                        <input type="text" name="address2" value="{{User.address2}}" placeholder="Your Address lane 2">
+                                                        <label>State</label>
+                                                        <input type="text" name="state" value="{{User.state}}" placeholder="Your State">
+                                                         <label>City</label>
+                                                        <input type="text" name="city"  value="{{User.city}}" placeholder="Your city">
+                                                        <label>Zip/Postal Code</label>
+                                                        <input type="text" name="pin" value="{{User.pin}}" placeholder="Your zip/postal code">
+                                                         <label>Phone</label>
+                                                        <input type="text" name="phone"  value="{{User.phone}}" placeholder="Your phone">
+
+                                                        <label> Mode of Payment</label>
+                                                            <input type="radio"  value="cod" name="option">&nbsp;&nbsp;COD ( Cash On Delivery )&nbsp;&nbsp;&nbsp;&nbsp;</input>
+                                                         <input type="radio" value="paypal" name="option">&nbsp;&nbsp;Paypal </input>
+                                                         <br><br><button type="submit" name="btn-sbmt" class="btn">Submit</button>
+                                                     </p>
+
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                            </ul>
+                            </form>
+
+                        </div>
+                    </div>
+
+                    <!--Order Summary-->
+                    <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12 sm-padding-top-48px sm-margin-bottom-0 xs-margin-bottom-15px">
+                        <div class="order-summary sm-margin-bottom-80px">
+                            <div class="title-block">
+                                <h3 class="title">Order Summary</h3>
+                                <a href="#" class="link-forward">Edit cart</a>
+                            </div>
+                            <div class="cart-list-box short-type">
+                                <span class="number">{{count}} items</span>
+                                <ul class="cart-list">
+
+                                    {% for i in Cart %}
+                                    <li class="cart-elem">
+                                        <div class="cart-item">
+                                            <div class="product-thumb">
+                                                <a class="prd-thumb" href="#">
+                                                    <figure><img src=" {{i.product.img1.url}} " width="113" height="113" alt="shop-cart" ></figure>
+                                                </a>
+                                            </div>
+                                            <div class="info">
+                                                <span class="txt-quantity">1X</span>
+                                                <a href="#" class="pr-name">National Fresh Fruit</a>
+                                            </div>
+                                            <div class="price price-contain">
+                                                <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
+                                                <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
+                                            </div>
+                                        </div>
+                                    </li>
+                                   {% endfor %}
+                                </ul>
+                                <ul class="subtotal">
+                                    <li>
+                                        <div class="subtotal-line">
+                                            <b class="stt-name">Subtotal</b>
+                                            <span class="stt-price">{{Cart.product.su}}</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="subtotal-line">
+                                            <b class="stt-name">Shipping</b>
+                                            <span class="stt-price">£20.00</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="subtotal-line">
+                                            <b class="stt-name">Tax</b>
+                                            <span class="stt-price">£0.00</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="subtotal-line">
+                                            <a href="#" class="link-forward">Promo/Gift Certificate</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="subtotal-line">
+                                            <b class="stt-name">total:</b>
+                                            <span class="stt-price">£190.00</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}

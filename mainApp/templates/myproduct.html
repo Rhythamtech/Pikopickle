@@ -1,0 +1,69 @@
+{% extends 'profile.html' %}
+{% load static %}
+{% block body %}
+<head>
+    <meta charset="UTF-8">
+    <title>PikoPickles- product</title>
+</head>
+<body>
+ <form class="shopping-cart-form" action="#" method="post">
+                {% csrf_token %}
+                                <table class="container shop_table cart-form">
+                                    <thead>
+                                    <tr>
+                                        <th class="product-name"></th>
+                                        <th class="product-name">Product Name</th>
+                                        <th class="product-price">Basic Price</th>
+                                        <th class="product-price">Discount</th>
+                                        <th class="product-price">Final Price</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for i in Product %}
+
+                                    <tr class="cart_item">
+                                        <td class="product-thumbnail" data-title="Product Name">
+                                            <a class="prd-thumb" href="#">
+                                                <figure><img width="113" height="113" src="{{i.img1.url}}" alt="shipping cart"></figure>
+                                            </a>
+                                            <div class="action">
+                                            </div>
+                                        </td>
+                                        <td class="product-thumbnail" data-title="Product Name">
+
+                                            <a class="prd-name" href="/product/{{i.id}}/">{{i.name}}</a>
+                                            <div class="action">
+                                            </div>
+                                        </td>
+
+                                        <td class="product-price" data-title="Price">
+                                            <div class="price price-contain">
+                                                <ins><span class="price-amount"><span class="currencySymbol">₹</span>{{i.baseprice}}</span></ins>
+                                            </div>
+                                        </td>
+                                      <td class="product-price" data-title="Price">
+                                            <div class="price price-contain">
+                                                <ins><span class="price-amount"><span class="currencySymbol"></span>{{i.discount}}%</span></ins>
+                                            </div>
+                                        </td>
+                                      <td class="product-price" data-title="Price">
+                                            <div class="price price-contain">
+                                                <ins><span class="price-amount"><span class="currencySymbol">₹</span>{{i.finalprice}}</span></ins>
+                                            </div>
+                                        </td>
+                                        <td class="product-price" data-title="Price">
+                                            <div class="price price-contain">
+                                                <a href="/deleteproduct/{{i.id}}/" class="btn btn-danger btn-sm">Delete</a>
+                                                <a href="/editproduct/{{i.id}}/" class="btn btn-success btn-sm">Edit</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+
+
+                                    </tbody>
+                                </table>
+                            </form>
+</body>
+{% endblock %}
+</html>

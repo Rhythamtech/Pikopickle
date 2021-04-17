@@ -1,0 +1,93 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+<head>
+   <meta charset="UTF-8">
+   <title>Profile</title>
+</head>
+<p class="container">    Hey, Welcome {{User.name}}</p>
+<form class="container-fluid container" method="post" >
+   {% csrf_token %}
+   <div class="form-group-fluid">
+      <div>
+         <label>
+            <h4>Username :</h4>
+         </label>
+         <input type="text" class="form-control" name='uname' value="{{User.uname}}">
+      </div>
+   </div>
+   <div class="form-group">
+      <div class="col-xs-6">
+         <label>
+            <h4>Name :</h4>
+         </label>
+         <input type="text" class="form-control"  name="name" value="{{User.name}}">
+      </div>
+   </div>
+   <div class="form-group">
+      <div class="col-xs-6">
+         <label >
+            <h4>Phone :</h4>
+         </label>
+         <input type="text" class="form-control" name="phone" value="{{User.phone}}">
+      </div>
+   </div>
+   <div class="form-group">
+      <div class="col-xs-6">
+         <label>
+            <h4>Email :</h4>
+         </label>
+         <input type="text" class="form-control" name="email" value="{{User.email}}">
+      </div>
+   </div>
+   <div class="form-group">
+      <div class="col-xs-6">
+         <label>
+            <h4>Address Lane 1 :</h4>
+         </label>
+         <input type="text" class="form-control" name="address1" value="{{User.address1}}">
+      </div>
+   </div>
+   <div class="form-group">
+      <div class="col-xs-6">
+         <label>
+            <h4>Address Lane 2 :</h4>
+         </label>
+         <input type="text" class="form-control" name="address2" value="{{User.address2}}">
+      </div>
+   </div>
+   <div class="form-group">
+      <div class="col-xs-6">
+         <label>
+            <h4>State :</h4>
+         </label>
+         <input type="text" class="form-control" name="state" value="{{User.state}}">
+      </div>
+   </div>
+   <div class="form-group">
+      <div class="col-xs-6">
+         <label>
+            <h4>City :</h4>
+         </label>
+         <input type="text" class="form-control" name="city" value="{{User.city}}">
+      </div>
+   </div>
+   <div class="form-group">
+      <div class="col-xs-6">
+         <label>
+            <h4>Pincode :</h4>
+         </label>
+         <input type="text" class="form-control" name="pin" value="{{User.pin}}">
+      </div>
+   </div>
+   <div class="form-group">
+      <div class="col-xs-12">
+         <br>
+         <button class="btn btn-lg btn-success" type="submit"> Update </button>
+      </div>
+      <div class="col-xs-12">
+      </div>
+   </div>
+</form>
+<br>
+{% endblock %}

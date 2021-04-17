@@ -1,0 +1,118 @@
+{% extends 'profile.html' %}
+{% load static %}
+{% block body %}
+
+
+
+<head>
+    <meta charset="UTF-8">
+  <title>edit Pickles</title>
+</head>
+
+<form class="form-horizontal container" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+  <legend class="container">EDIT PICKLES</legend>
+
+<!-- Form Name -->
+
+<!-- Text input-->
+<div class="form-group">
+  <label>PRODUCT NAME </label>
+  <div class="col-md-4">
+  <input name="name" class="form-control input-md" required="" value="{{Product.name}}" type="text">
+  </div>
+</div>
+
+
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label">PRODUCT DESCRIPTION</label>
+  <div class="col-md-4">
+    <textarea name="desc" class="form-control input-md">{{Product.description}}</textarea>
+  </div>
+</div>
+
+  <div class="form-group">
+  <label class="col-md-4 control-label">PRODUCT CATEGORY </label>
+  <div class="col-md-4" >
+     <select class="form-control" name="category">
+               {% for i in Category %}
+     <option value="{{i.name}}">{{i.name}}</option>
+               {% endfor %}
+    </select>
+  </div>
+  </div>
+
+
+<br>
+
+
+  <div class="form-group">
+  <label class="col-md-4 control-label">PRODUCT DISCOUNT </label>
+  <div class="col-md-4">
+  <input name="discount" class="form-control input-md" required="" type="text" value="{{Product.discount}}">
+  </div>
+  </div>
+<div class="form-group">
+  <label class="col-md-4 control-label">PRODUCT PRICE </label>
+  <div class="col-md-4">
+  <input name="price" class="form-control input-md" required="" type="text" value="{{Product.baseprice}}">
+  </div>
+  </div>
+
+  <div class="form-group">
+  <label class="col-md-4 control-label">PRODUCT IN STOCK </label>
+  <div >
+     <select class="form-control" name="stock">
+     <option value="1">False</option>
+     <option value="2">True</option>
+    </select>
+
+  </div>
+  </div>
+
+
+
+
+
+
+  <!-- File Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label">PRODUCT IMAGE 1</label>
+  <div class="col-md-4">
+    <input name="img1" class="input-file" type="file">
+  </div>
+</div>
+ <!-- File Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label">PRODUCT IMAGE 2</label>
+  <div class="col-md-4">
+    <input  name="img2" class="input-file" type="file">
+  </div>
+</div>
+ <!-- File Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" >PRODUCT IMAGE 3</label>
+  <div class="col-md-4">
+    <input  name="img3" class="input-file" type="file">
+  </div>
+</div>
+ <!-- File Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" >PRODUCT IMAGE 4</label>
+  <div class="col-md-4">
+    <input  name="img4" class="input-file" type="file">
+  </div>
+</div>
+
+  <div class="form-group">
+  <label class="col-md-4 control-label" ></label>
+  <div class="col-md-4">
+      <button type="submit" class="btn btn-primary"> Submit Product </button>
+  </div>
+</div>
+</form>
+
+{% endblock %}
