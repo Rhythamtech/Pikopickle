@@ -1,1 +1,1 @@
-web: gunicorn pikopickle.wsgi 
+web: gunicorn pikopickle.wsgi

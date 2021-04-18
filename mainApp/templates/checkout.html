@@ -60,7 +60,7 @@
                         <div class="order-summary sm-margin-bottom-80px">
                             <div class="title-block">
                                 <h3 class="title">Order Summary</h3>
-                                <a href="#" class="link-forward">Edit cart</a>
+                                <a href="/cart/" class="link-forward">Edit cart</a>
                             </div>
                             <div class="cart-list-box short-type">
                                 <span class="number">{{count}} items</span>
@@ -75,48 +75,17 @@
                                                 </a>
                                             </div>
                                             <div class="info">
-                                                <span class="txt-quantity">1X</span>
-                                                <a href="#" class="pr-name">National Fresh Fruit</a>
+                                                <span class="txt-quantity">{{i.quantity}}X</span>
+                                                <a href="#" class="pr-name">{{i.product.name}}</a>
                                             </div>
                                             <div class="price price-contain">
-                                                <ins><span class="price-amount"><span class="currencySymbol">£</span>85.00</span></ins>
-                                                <del><span class="price-amount"><span class="currencySymbol">£</span>95.00</span></del>
+                                                <ins><span class="price-amount"><span class="currencySymbol">Rs </span>{{i.total}}</span></ins>
                                             </div>
                                         </div>
                                     </li>
                                    {% endfor %}
                                 </ul>
-                                <ul class="subtotal">
-                                    <li>
-                                        <div class="subtotal-line">
-                                            <b class="stt-name">Subtotal</b>
-                                            <span class="stt-price">{{Cart.product.su}}</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="subtotal-line">
-                                            <b class="stt-name">Shipping</b>
-                                            <span class="stt-price">£20.00</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="subtotal-line">
-                                            <b class="stt-name">Tax</b>
-                                            <span class="stt-price">£0.00</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="subtotal-line">
-                                            <a href="#" class="link-forward">Promo/Gift Certificate</a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="subtotal-line">
-                                            <b class="stt-name">total:</b>
-                                            <span class="stt-price">£190.00</span>
-                                        </div>
-                                    </li>
-                                </ul>
+
                             </div>
                         </div>
                     </div>
